@@ -1,0 +1,39 @@
+@use 'base/mixins' as m;
+
+.iconos-nosotros {
+    margin-top: 2rem;
+
+    @include m.tablet {
+        @include m.grid(3, 2rem);
+        margin-top: 3rem;
+    }
+}
+
+.icono {
+    margin-bottom: 3rem;
+
+    @include m.tablet {
+        margin-bottom: 0;
+    }
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    img {
+        height: 7rem;
+
+    }
+
+    h3 {
+        text-transform: uppercase;
+        margin: 1rem 0;
+    }
+
+    p {
+        font-size: 1.6rem;
+        line-height: 2;
+        margin: 1rem 0;
+        text-align: center;
+    }
+}

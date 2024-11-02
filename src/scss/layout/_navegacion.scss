@@ -1,0 +1,106 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.derecha {
+    display: flex;
+    flex-direction: column;
+
+    @include m.tablet {
+        flex-direction: row-reverse;
+        align-items: flex-end;
+    }
+
+    .dark-mode-boton {
+        height: 3.2rem;
+        filter: invert(95%);
+        margin-bottom: 1rem;
+
+        @include m.tablet {
+            margin-bottom: 0;
+            padding-left: 1.5rem;
+            padding-bottom: .5rem;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.barra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+
+    @include m.tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 4rem;
+        padding: 2rem 0;
+    }
+}
+
+.navegacion {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: visibility .3s ease-in-out, opacity .3s linear, height .5s linear;
+
+    @include m.tablet {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+    }
+
+    a {
+        display: block;
+        margin-bottom: 1rem;
+        color: v.$blanco;
+        font-size: 1.8rem;
+        text-align: center;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        @include m.tablet {
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            color: v.$verde;
+        }
+
+        &.active {
+            color: v.$verde;
+        }
+    }
+}
+
+/** Menu de Hamburguesa **/
+.mobile-menu {
+    @include m.tablet {
+        display: none;
+    }
+
+    img {
+        height: 4.5rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.mostrar {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}
+
+

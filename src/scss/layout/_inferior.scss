@@ -1,0 +1,86 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.seccion-inferior {
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 2rem;
+    }
+}
+
+.entrada-blog {
+    margin-bottom: 2rem;
+
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.texto-entrada {
+    margin-top: 1rem;
+
+    a {
+        color: v.$negro;
+    }
+    
+    h4 {
+        margin: 0;
+        line-height: 1.4;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 15rem;
+            height: .2rem;
+            background-color: v.$verde;
+            margin-top: 1rem;
+        }
+    }
+
+    .info-meta {
+        font-weight: bold;
+        font-size: 1.8rem;
+    }
+
+    span {
+          color: v.$amarillo;
+          font-weight: v.$black;  
+    }
+
+    p {
+        font-size: 1.9rem;
+        line-height: 2;
+    }
+}
+
+.resumen-blog {
+    .info-meta {
+        padding-left: 2rem;
+        background-color: darken(v.$blanco, 10);
+        border-radius: .5rem;
+    }
+
+    span {
+        color: v.$amarillo;
+        font-weight: v.$black;  
+  }
+
+    .first-text {
+        margin-top: 1rem;
+    }
+    .first-text,
+    .second-text {
+        line-height: 2;
+        background-color: lighten(v.$gris, 5);
+        padding: 2rem;
+        border-radius: .5rem;
+    }
+
+}

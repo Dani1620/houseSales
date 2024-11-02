@@ -1,0 +1,31 @@
+@use 'base/variables' as v;
+
+.testimonial {
+    background-color: v.$verde;
+    font-size: 2rem;
+    padding: 1rem;
+    color: v.$blanco;
+    line-height: 2;
+    border-radius: 1rem;
+
+    blockquote {
+        padding-left: 5rem;
+        position: relative;
+
+        &::before {
+            content: '';
+            display: block;  
+            position: absolute;  
+            width: 5rem;
+            height: 5rem;
+            background-image: url(../img/comilla.svg);
+            background-repeat: no-repeat;
+            left: -1rem;
+        }
+    }
+
+    p {
+        text-align: right;
+        color: v.$blanco;
+    }
+}

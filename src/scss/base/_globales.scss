@@ -1,0 +1,71 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: v.$font_text;
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+p {
+    color: v.$negro;
+    font-size: 1.6rem;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 115rem;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+picture {
+    width: 100%;
+    display: block;
+}
+
+h1,
+h2,
+h3 {
+    font-family: v.$font_text;
+    margin: calc(v.$separacion / 2) 0;
+    font-weight: 300;
+    text-align: center;
+}
+
+h1 {
+    line-height: 1.4;
+    color: v.$blanco;
+    
+    @include m.tablet {
+        font-size: 3.8rem;
+    }
+}
+
+h2 {
+    font-size: 3.4rem;
+    line-height: 1.5;
+}
+
+h3 {
+    font-size: 2.9rem;
+}
+
+h4 {
+    font-size: 2.4rem;
+}

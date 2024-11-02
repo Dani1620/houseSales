@@ -1,0 +1,69 @@
+@use 'base/variables' as v;
+
+.formulario {
+    background-color: ghostwhite;
+    padding: 2rem;
+
+    fieldset {
+        border: 1px solid v.$negro;
+    }
+
+    fieldset:nth-child(2),
+    fieldset:nth-child(3) {
+        margin-top: 1rem;
+    }
+
+    legend {
+        color: v.$grisOscuro;
+        font-size: 2rem;
+    }
+
+    .field {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        display: block;
+        padding-left: .5rem;
+        font-weight: v.$bold;
+        text-transform: uppercase;
+        margin-bottom: .5rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    input:not([type="submit"]),
+    .textarea,
+    select {
+        padding: 1rem;
+        display: block;
+        width: 100%;
+        background-color: v.$blanco;
+        border: 2px solid v.$gris;
+        border-radius: 1rem;
+    }
+
+    .textarea {
+        height: 13rem;
+    }
+
+    p {
+        color: v.$grisOscuro;
+        font-size: 1.5rem;
+        margin: 1.5rem 0;
+    }
+}
+
+.forma-contacto {
+    max-width: 25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    label {
+        margin-bottom: 0;
+        flex: 0 0 6rem;
+    }
+}

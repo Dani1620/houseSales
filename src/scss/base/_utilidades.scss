@@ -1,0 +1,54 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.seccion {
+    margin-top: calc(v.$separacion / 2);
+    margin-bottom: calc(v.$separacion / 2);
+}
+.contenido-centrado {
+    max-width: 85rem;
+    margin: 0 auto;
+    width: 95%;
+
+    h2 {
+        margin-bottom: 2rem;
+
+        @include m.tablet {
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+.contenido-agrupado {
+    max-width: 105rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.w-100 {
+    width: 100%;
+
+    .upper-case {
+        text-transform: uppercase;
+    }
+
+    .f-size {
+        font-size: 1.7rem;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.m-bottom {
+    margin-bottom: 2rem;
+}
+
+
+.d-grid {
+    display: grid;
+    place-items: center;
+}

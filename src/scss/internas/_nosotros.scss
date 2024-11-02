@@ -1,0 +1,31 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.nosotros {
+    @include m.tablet {
+        @include m.grid(2, 2rem);
+        margin-top: 3rem;
+    }
+}
+
+.picture {
+    img {
+        height: 100%;
+    }
+}
+
+.informacion-nosotros {
+    margin-top: 1rem;
+
+    blockquote.expert {
+        font-weight: v.$black;
+        font-size: 1.8rem;
+        color: crimson;
+        margin: 0;
+    }
+
+    p {
+        font-size: 1.7rem;
+        line-height: 2;
+    }
+}

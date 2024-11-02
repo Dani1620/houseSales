@@ -1,0 +1,79 @@
+@use 'base/variables' as v;
+@use 'sass:color';
+
+body.dark-mode {
+    background-color: color.adjust(v.$grisOscuro, $lightness: -10%); 
+
+    h1, h2, h3, h4 {
+        color: v.$gris;
+    }
+
+    p,
+    a {
+        color: v.$blanco;
+    }
+
+    .anuncio,
+    .resumen-propiedad {
+        background-color: v.$grisOscuro;
+        border: none;
+    }
+
+    .resumen-propiedad {
+        padding: 0 1.5rem;
+        border: none;
+    }
+
+    .iconos-caracteristicas {
+        img {
+            filter: invert(100%);
+        }
+    }
+
+    .entrada-blog {
+        background-color: v.$negro;
+    }
+
+    .informacion-nosotros blockquote {
+        color: v.$verde;
+    }
+
+    .formulario {
+        background-color: color.adjust(v.$grisOscuro, $lightness: -10%); 
+
+        fieldset {
+            border: 1.5px solid #e1e1e1;
+        }
+
+        legend, 
+        label,
+        p {
+            color: v.$gris;
+        }
+
+        input:not([type="submit"]),
+        textarea,
+        select {
+            background-color: color.adjust(v.$grisOscuro, $lightness: 70%);
+            border: none;
+            font-size: 1.8rem;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+    }
+
+    table.propiedades,
+    table.vendedores {
+        tbody {
+            tr {
+                &:nth-child(odd) {
+                    background-color: #252525;
+                }
+            }
+
+            td {
+                color: v.$blanco;
+            }
+        }
+
+    }
+}
