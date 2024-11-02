@@ -49,7 +49,7 @@ incluirTemplate('header', $inicio = true);
 </main>
 
 <section class="seccion contenedor">
-  <h2>Listado de Casas y Apartamentos en Venta</h2>
+  <h2>Apartamentos y Casas en Venta</h2>
 
   <?php
 
