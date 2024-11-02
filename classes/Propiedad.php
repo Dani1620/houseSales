@@ -19,6 +19,7 @@ class Propiedad extends ActiveRecord
     public $estacionamiento;
     public $creado;
     public $vendedores_id;
+    public $registro;
 
     // Metodo constructor: Este tomara el arreglo $_POST cons sus llaves y valores
     public function __construct($args = [])
@@ -33,6 +34,7 @@ class Propiedad extends ActiveRecord
         $this->estacionamiento = $args['estacionamiento'] ?? '';
         $this->creado = date('Y/m/d');
         $this->vendedores_id = $args['vendedor_id'] ?? '';
+        $this->registro = $args['registro'] ?? '';
     }
 
     // Metodo con la Validacion

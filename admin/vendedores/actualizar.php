@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
     $errores = $vendedor->validar();
 
     if (empty($errores)) {
+
         $vendedor->guardar();
     }
 }
@@ -54,9 +55,11 @@ incluirTemplate('header');
 
     <!-- GET: Se usa para obtener datos de un servidor y mostrarlos en la url -->
     <!-- POST: Se utiliza para enviar datos al servidor de forma segura, sin exponer la informacion -->
-    <form class="formulario" method="POST" enctype="multipart/form-data">
+    <form class="formulario" method="POST">
 
         <?php include '../../includes/templates/formulario_vendedores.php' ?>
+
+        <input type="hidden" name="vendedor[registro]" value="vendedor">
 
         <div class="alinear-derecha">
             <input type="submit" value="Guardar Cambios" class="boton btn-verde">

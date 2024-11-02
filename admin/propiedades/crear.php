@@ -75,6 +75,8 @@ incluirTemplate('header');
 
         <?php include '../../includes/templates/formulario_propiedades.php' ?>
 
+        <input type="hidden" name="propiedad[registro]" value="propiedad">
+
         <div class="alinear-derecha">
             <input type="submit" value="Crear Propiedad" class="boton btn-verde">
         </div>

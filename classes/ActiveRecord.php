@@ -26,16 +26,16 @@ class ActiveRecord
     public function guardar()
     {
         if (!is_null($this->id)) {
-            // Actualizando la propiedad
-            $this->actualizar();
+            // Actualizando un registro
+            $this->actualizar($this->registro);
         } else {
-            // Creando una propiedad
-            $this->crear();
+            // Creando un nuevo registro
+            $this->crear($this->registro);
         }
     }
 
     // Metodo para crear registros nuevos
-    public function crear()
+    public function crear($tipo)
     {
         // Arreglo con los Datos Sanitizados
         $atributos = $this->sanitizarDatos();
@@ -51,15 +51,26 @@ class ActiveRecord
         // Ingresando la informacion en la BD
         $resultado = self::$db->query($query);
 
-        // Muestra la alerta de exito
         if ($resultado) {
-            // Redireccionando al usuario
-            header('Location: ../index.php?resultado=1');
+
+            // Verificando si el contenido a eliminar es valido (vendedor o propiedad)
+            if (validarTipoRegistro($tipo)) {
+                // Comprobando lo que vamos a eliminar
+                if ($tipo === 'propiedad') {
+
+                    // Redireccionando y mostrando la alerta de anuncio creado
+                    header('Location: ../index.php?resultado=1');
+                } else if ($tipo === 'vendedor') {
+
+                    // Redireccionando y mostrando la alerta de vendedor/a creado/a
+                    header('Location: ../index.php?resultado=4');
+                }
+            }
         }
     }
 
     // Metodo para actualizar registros
-    public function actualizar()
+    public function actualizar($tipo)
     {
         // Arreglo con los Datos Sanitizados
         $atributos = $this->sanitizarDatos();
@@ -78,13 +89,25 @@ class ActiveRecord
         $resultado = self::$db->query($query);
 
         if ($resultado) {
-            // Redireccionando al usuario
-            header('Location: ../index.php?resultado=2');
+
+            // Verificando si el contenido a eliminar es valido (vendedor o propiedad)
+            if (validarTipoRegistro($tipo)) {
+                // Comprobando lo que vamos a eliminar
+                if ($tipo === 'propiedad') {
+
+                    // Redireccionando y mostrando la alerta de anuncio actualizado
+                    header('Location: ../index.php?resultado=2');
+                } else if ($tipo === 'vendedor') {
+
+                    // Redireccionando y mostrando la alerta de vendedor/a actualizado/a
+                    header('Location: ../index.php?resultado=5');
+                }
+            }
         }
     }
 
     // Metodo para eliminar registros
-    public function eliminar()
+    public function eliminar($type)
     {
         // Codigo SQL para Eliminar la propiedad
         $query = "DELETE FROM " . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1;";
@@ -92,9 +115,17 @@ class ActiveRecord
         $resultado = self::$db->query($query);
 
         if ($resultado) {
-            $this->borrarImagen();
 
-            header('location: ../admin/index.php?resultado=3');
+            // Comprobando lo que vamos a eliminar
+            if ($type === 'propiedad') {
+
+                // Redireccionando y mostrando la alerta de anuncio actualizado
+                header('Location: ../admin/index.php?resultado=3');
+            } elseif ($type === 'vendedor') {
+
+                // Redireccionando y mostrando la alerta de vendedor/a actualizado/a
+                header('Location: ../admin/index.php?resultado=6');
+            }
         }
     }
 

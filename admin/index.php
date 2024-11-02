@@ -24,23 +24,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($id) {
 
-        $tipo = $_POST['registro'];
+        $type = $_POST['registro'];
 
         // Verificando si el contenido a eliminar es valido (vendedor o propiedad)
-        if (validarTipoRegistro($tipo)) {
+        if (validarTipoRegistro($type)) {
             // Comprobando lo que vamos a eliminar
-            if ($tipo === 'propiedad') {
+            if ($type === 'propiedad') {
 
                 // Obteniendo el registro de la propiedad a eliminar
                 $propiedad = Propiedad::find($id);
 
-                $propiedad->eliminar();
-            } else if ($tipo === 'vendedor') {
+                $propiedad->eliminar($type);
+            } else if ($type === 'vendedor') {
 
                 // Obteniendo el registro del vendedor a eliminar
                 $vendedor = Vendedor::find($id);
 
-                $vendedor->eliminar();
+                $vendedor->eliminar($type);
             }
         }
     }

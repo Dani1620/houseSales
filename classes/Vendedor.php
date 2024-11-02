@@ -13,6 +13,7 @@ class Vendedor extends ActiveRecord
     public $nombre;
     public $apellido;
     public $telefono;
+    public $registro;
 
     // Metodo constructor: Este tomara el arreglo $_POST cons sus llaves y valores
     public function __construct($args = [])
@@ -21,6 +22,7 @@ class Vendedor extends ActiveRecord
         $this->nombre = $args['nombre'] ?? '';
         $this->apellido = $args['apellido'] ?? '';
         $this->telefono = $args['telefono'] ?? '';
+        $this->registro = $args['registro'] ?? '';
     }
 
     // Metodo con la Validacion 
